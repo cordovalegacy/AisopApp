@@ -1,23 +1,40 @@
-/**
- * @format
- */
 
 // !Packages
-import { SafeAreaView, StatusBar, Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { useUserStore } from './src/zustand/users/useUserStore'
 
 // !Components
-import Home from './src/screens/UnAuthenticated/Home/Home'
+import AuthenticatedHome from './src/screens/Authenticated/Home/AuthenticatedHome'
+import UnAuthenticatedHome from './src/screens/UnAuthenticated/Home/UnAuthenticatedHome'
+
+// !Routing
+const Stack = createStackNavigator()
 
 const App = (): JSX.Element => {
 
+  const { loggedInUser } = useUserStore()
+
   return (
-    <SafeAreaView>
-      <StatusBar backgroundColor={"#000041"}/>
-      <View>
-        <Text>Hello App</Text>
-        <Home />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerShown: false
+      }}>
+        {
+          loggedInUser.isAuthenticated
+            ?
+            <Stack.Screen
+              name='UnAuthenticatedHome'
+              component={UnAuthenticatedHome}
+            />
+            :
+            <Stack.Screen
+              name='AuthenticatedHome'
+              component={AuthenticatedHome}
+            />
+        }
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
