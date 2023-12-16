@@ -1,23 +1,19 @@
-/**
- * @format
- */
 
 // !Packages
-import { SafeAreaView, StatusBar, Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { useUserStore } from './src/zustand/users/useUserStore'
 
 // !Components
-import Home from './src/screens/UnAuthenticated/Home/Home'
+import AuthNavigator from './src/navigators/AuthNavigator'
 
 const App = (): JSX.Element => {
 
+  const { loggedInUser } = useUserStore()
+
   return (
-    <SafeAreaView>
-      <StatusBar backgroundColor={"#000041"}/>
-      <View>
-        <Text>Hello App</Text>
-        <Home />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <AuthNavigator loggedInUser={loggedInUser} />
+    </NavigationContainer>
   )
 }
 
