@@ -17,7 +17,6 @@ const Login = () => {
 
 
   const { logInUser, loggedInUser } = useUserStore()
-  {/* <Button title='Trigger The User Store - Zustand' onPress={triggerZustandStore} /> */ }
   const triggerZustandStore = () => {
     logInUser({
       gamer_tag: "new_gamer_tag",
@@ -29,7 +28,6 @@ const Login = () => {
   }
 
   return (
-    <SafeAreaView style={[screen.fullScreen, login.center]}>
       <ScrollView style={screen.fullScreen} contentContainerStyle={{ alignItems: "center", flex: 1, justifyContent: "center" }}>
         <Text style={login.header}>WRITE YOUR OWN STORY</Text>
         <View style={login.form}>
@@ -39,7 +37,7 @@ const Login = () => {
           </View>
           <View style={login.inputGroup}>
             <Text style={login.label}>Password</Text>
-            <TextInput style={login.input} onChangeText={(data) => changeHandler("password", data, setLoginInput)} />
+            <TextInput secureTextEntry style={login.input} onChangeText={(data) => changeHandler("password", data, setLoginInput)} />
           </View>
           <Pressable onPress={triggerZustandStore}>
             <View style={login.button}>
@@ -48,7 +46,6 @@ const Login = () => {
             </Pressable>
         </View>
       </ScrollView>
-    </SafeAreaView>
   )
 }
 

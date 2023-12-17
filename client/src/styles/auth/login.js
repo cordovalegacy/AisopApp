@@ -12,7 +12,7 @@ export const login = StyleSheet.create({
         borderWidth: 2,
         borderColor: "#fcd34d",
         width: (Dimensions.get("window").width - 20),
-        height: (Dimensions.get("window").height / 2),
+        height: (Dimensions.get("window").height / 2.5),
         borderRadius: 20,
         opacity: 0.95,
         elevation: 5,
@@ -36,14 +36,15 @@ export const login = StyleSheet.create({
         letterSpacing: 3
     },
     input: {
-        fontSize: 16,
+        fontSize: 20,
         color: "white",
         width: "100%",
         fontWeight: "500",
         backgroundColor: "#12172b",
         borderWidth: 1,
         borderColor: "white",
-        borderRadius: 10
+        borderRadius: 10,
+        padding: 12
     },
     inputGroup: {
         marginVertical: 10
@@ -51,9 +52,10 @@ export const login = StyleSheet.create({
     button: {
         backgroundColor: "#d9b945",
         width: "100%",
-        padding: 5,
+        padding: 10,
         borderRadius:5,
-        marginTop: 10
+        marginTop: 15,
+        marginBottom: 50
     },
     buttonText: {
         fontSize: 22,
