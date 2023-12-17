@@ -6,9 +6,10 @@ export const useUserStore = create<UserState>((set) => ({
         first_name: "",
         last_name: "",
         email: "",
+        dob: "",
         isAuthenticated: false
     },
-    logInUser: (userData:any) => {
+    logInUser: (userData: any) => {
         set((state) => {
             console.log("User Data: ", userData)
             return ({
@@ -18,5 +19,17 @@ export const useUserStore = create<UserState>((set) => ({
                 }
             })
         })
+    },
+    logOutUser: () => {
+        set(() => ({
+            loggedInUser: {
+                gamer_tag: "",
+                first_name: "",
+                last_name: "",
+                email: "",
+                dob: "",
+                isAuthenticated: false
+            }
+        }))
     }
 }))

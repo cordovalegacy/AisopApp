@@ -4,8 +4,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 // !Components
-import Login from "../components/Login"
-import Registration from "../components/Registration"
+import Login from "../components/UnAuthenticated/Login"
+import Registration from "../components/UnAuthenticated/Registration"
 import ForestBackgroundWrapper from "../constants/ForestBackgroundWrapper"
 import { screenOptions } from '../utils/screenOptions/UnAuthenticatedScreenOptions'
 
